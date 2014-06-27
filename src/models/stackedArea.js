@@ -105,12 +105,19 @@ nv.models.stackedArea = function() {
       //------------------------------------------------------------
 
 
+
+      /*
+      [PULSE-ENERGY] instead of calling forceY, overriding any forced values previously setup,
+      add 0 to the list of previously added forceY values
+       */
+      var currentForceY = scatter.forceY();
+      currentForceY.push(0);
       scatter
         .width(availableWidth)
         .height(availableHeight)
         .x(getX)
         .y(function(d) { return d.display.y + d.display.y0 })
-        .forceY([0])
+        .forceY(currentForceY)
         .color(data.map(function(d,i) {
           return d.color || color(d, d.seriesIndex);
         }));
