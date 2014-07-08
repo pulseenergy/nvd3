@@ -97,12 +97,12 @@ nv.models.multiChart = function() {
       gEnter.append('g').attr('class', 'x axis');
       gEnter.append('g').attr('class', 'y1 axis');
       gEnter.append('g').attr('class', 'y2 axis');
-      gEnter.append('g').attr('class', 'lines1Wrap');
-      gEnter.append('g').attr('class', 'lines2Wrap');
-      gEnter.append('g').attr('class', 'bars1Wrap');
-      gEnter.append('g').attr('class', 'bars2Wrap');
       gEnter.append('g').attr('class', 'stack1Wrap');
       gEnter.append('g').attr('class', 'stack2Wrap');
+      gEnter.append('g').attr('class', 'bars1Wrap');
+      gEnter.append('g').attr('class', 'bars2Wrap');
+      gEnter.append('g').attr('class', 'lines1Wrap');
+      gEnter.append('g').attr('class', 'lines2Wrap');
       gEnter.append('g').attr('class', 'legendWrap');
 
       var g = wrap.select('g');
@@ -214,11 +214,11 @@ nv.models.multiChart = function() {
       if(dataStack1.length){d3.transition(stack1Wrap).call(stack1);}
       if(dataStack2.length){d3.transition(stack2Wrap).call(stack2);}
 
-      if(dataBars1.length){d3.transition(bars1Wrap).call(bars1);}
-      if(dataBars2.length){d3.transition(bars2Wrap).call(bars2);}
+      d3.transition(bars1Wrap).call(bars1);
+      d3.transition(bars2Wrap).call(bars2);
 
-      if(dataLines1.length){d3.transition(lines1Wrap).call(lines1);}
-      if(dataLines2.length){d3.transition(lines2Wrap).call(lines2);}
+      d3.transition(lines1Wrap).call(lines1);
+      d3.transition(lines2Wrap).call(lines2);
       
 
 
